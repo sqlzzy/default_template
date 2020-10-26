@@ -1,0 +1,51 @@
+{
+    "name": "default_template",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/osipovsergey/default_template.git"
+    },
+    "author": "Sergey Osipov",
+    "license": "MIT",
+    "private": true,
+    "browserslist": [
+        "> 1%",
+        "last 3 version"
+    ],
+    "Dependencies": {},
+    "devDependencies": {
+        "@babel/core": "^7.12.3",
+        "@babel/preset-env": "^7.12.1",
+        "autoprefixer": "^10.0.1",
+        "babel-loader": "^8.1.0",
+        "css-loader": "^5.0.0",
+        "css-mqpacker": "^7.0.0",
+        "cssnano": "^4.1.10",
+        "less": "^3.12.2",
+        "less-loader": "^7.0.2",
+        "mini-css-extract-plugin": "^1.2.0",
+        "mqpacker": "^7.0.0",
+        "node-less": "^1.0.0",
+        "path": "^0.12.7",
+        "postcss-loader": "^4.0.4",
+        "style-loader": "^2.0.0",
+        "webpack": "^5.2.0",
+        "webpack-cli": "^4.1.0",
+        "webpack-dev-server": "^3.11.0"
+    },
+    "description": "Webpack + Vue + Less",
+    "bugs": {
+        "url": "https://github.com/osipovsergey/default_template/issues"
+    },
+    "homepage": "https://github.com/osipovsergey/default_template#readme",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "webpack serve",
+        "build": "webpack --mode production"
+    },
+    "dependencies": {
+        "vue": "^2.6.12",
+        "vue-template-loader": "^1.1.0"
+    }
+}
