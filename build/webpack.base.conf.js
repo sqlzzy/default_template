@@ -1,16 +1,27 @@
 const { resolve } = require('dns');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const PATHS = {
+    src: path.resolve(__dirname, '../src'),
+    dist: path.resolve(__dirname, '../public'),
+    assets: 'assets/'
+}
 
 module.exports = {
+    externals: {
+        paths: PATHS,
+    },
+
     entry: {
-        app: './src/index.js',
+        app: PATHS.src,
     },
 
     output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, './dist'),
-        publicPath: '/dist',
+        filename: `${PATHS.assets}js/[name].js`,
+        path: PATHS.dist,
+        // publicPath: '/',
     },
 
     module: {
@@ -18,6 +29,17 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: '/node_modules/'
+            },
+            {
+                test: /\.html$/i,
+                loader: 'html-loader',
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                }
             },
             {
                 test: /\.less$/,
@@ -35,7 +57,7 @@ module.exports = {
                         options: {
                             sourceMap: true,
                             'postcssOptions': {
-                                'config': 'src/js/postcss.config.js',
+                                'config': `${PATHS.src}/js/postcss.config.js`,
                             },
                         }
                     },
@@ -64,7 +86,7 @@ module.exports = {
                         options: {
                             sourceMap: true,
                             'postcssOptions': {
-                                'config': 'src/js/postcss.config.js',
+                                'config': `${PATHS.src}/js/postcss.config.js`,
                             },
                         }
                     },
@@ -73,14 +95,24 @@ module.exports = {
         ]
     },
 
-    devServer: {
-        overlay: true,
-        open: true,
-    },
-
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "[name].css"
+            filename: `${PATHS.assets}css/[name].css`,
+        }),
+        new CopyWebpackPlugin({
+            patterns: [{
+                    from: `${PATHS.src}/images`,
+                    to: `${PATHS.assets}images`,
+                },
+                {
+                    from: `${PATHS.src}/static`,
+                },
+            ]
+        }),
+        new HtmlWebpackPlugin({
+            hash: false,
+            template: `${PATHS.src}/templates/index.html`,
+            filename: 'index.html'
         })
     ]
 }
