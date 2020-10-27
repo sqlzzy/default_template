@@ -106,9 +106,7 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({
-            hash: false,
-            template: `${PATHS.src}/templates/index.html`,
-            filename: 'index.html'
+            template: path.resolve(__dirname, '../src/index.html')
         })
     ]
 }

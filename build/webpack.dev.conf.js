@@ -1,4 +1,5 @@
 const { resolve } = require('path');
+const path = require('path');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
@@ -8,7 +9,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     devtool: 'cheap-module-source-map',
 
     devServer: {
-        contentBase: '../src/',
+        contentBase: path.resolve(__dirname, '../dist/'),
+        watchContentBase: true,
         overlay: {
             warnings: false,
             errors: true,
@@ -16,7 +18,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         open: true,
         port: 8081,
         host: '0.0.0.0',
-        watchContentBase: true,
         compress: true
     },
 
