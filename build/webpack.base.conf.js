@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const PATHS = {
     src: path.resolve(__dirname, '../src'),
-    dist: path.resolve(__dirname, '../public'),
+    dist: path.resolve(__dirname, '../dist'),
     assets: 'assets/'
 }
 
@@ -29,10 +29,6 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: '/node_modules/'
-            },
-            {
-                test: /\.html$/i,
-                loader: 'html-loader',
             },
             {
                 test: /\.(png|jpg|gif|svg)$/,
