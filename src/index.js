@@ -1,3 +1,2 @@
-import './js/common.js';
-import './css/main.css';
-import './less/main.less';
+// Test import of styles
+import './styles/main.less';

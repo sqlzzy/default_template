@@ -1,28 +1,30 @@
+const paths = require('./paths');
 const { merge } = require('webpack-merge');
-const baseWebpackConfig = require('./webpack.common.js');
+const common = require('./webpack.common.js');
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const path = require('./paths');
 
-const buildWebpackConfig = merge(baseWebpackConfig, {
+module.exports = merge(common, {
     mode: 'production',
     devtool: false,
-
     output: {
-        path: path.build,
+        path: paths.build,
         publicPath: '/',
-        filename: 'assets/js/[name].[contenthash].bundle.js',
+        filename: 'js/[name].[contenthash].bundle.js',
     },
     plugins: [
+        // Extracts CSS into separate files
+        // Note: style-loader is for development, MiniCssExtractPlugin is for production
         new MiniCssExtractPlugin({
-            filename: 'assets/css/[name].[contenthash].css',
+            filename: 'styles/[name].[contenthash].css',
             chunkFilename: '[id].css',
         }),
     ],
     module: {
         rules: [{
-            test: /\.css$/,
+            test: /\.(less|css)$/,
             use: [
                 MiniCssExtractPlugin.loader,
                 {
@@ -40,6 +42,9 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
     optimization: {
         minimize: true,
         minimizer: [new OptimizeCssAssetsPlugin(), new TerserPlugin()],
+        // Once your build outputs multiple chunks, this option will ensure they share the webpack runtime
+        // instead of having their own. This also helps with long-term caching, since the chunks will only
+        // change when actual code changes, not the webpack runtime.
         runtimeChunk: {
             name: 'runtime',
         },
@@ -49,8 +54,4 @@ const buildWebpackConfig = merge(baseWebpackConfig, {
         maxEntrypointSize: 512000,
         maxAssetSize: 512000,
     },
-});
-
-module.exports = new Promise((resolve, reject) => {
-    resolve(buildWebpackConfig);
-});
+})

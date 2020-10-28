@@ -1,8 +1,8 @@
-const paths = require('./paths')
+const paths = require('./paths');
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     // Where webpack looks to start building the bundle
@@ -23,18 +23,15 @@ module.exports = {
         // Copies files from target to destination folder
         new CopyWebpackPlugin({
             patterns: [{
-                from: paths.src,
+                from: paths.public,
                 to: 'assets',
-                globOptions: {
-                    ignore: ['*.DS_Store'],
-                },
             }, ],
         }),
 
         // Generates an HTML file from a template
         // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
         new HtmlWebpackPlugin({
-            template: paths.src + '/template.html', // template file
+            template: paths.src + 'templates/template.html', // template file
             filename: 'index.html', // output file
         }),
     ],
