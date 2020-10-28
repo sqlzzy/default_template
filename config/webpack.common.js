@@ -3,6 +3,7 @@ const paths = require('./paths');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     entry: {
@@ -13,6 +14,13 @@ module.exports = {
         path: paths.build,
         filename: '[name].bundle.js',
         //publicPath: '/',
+    },
+
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js'
+        },
+        extensions: ['*', '.js', '.vue', '.json']
     },
 
     plugins: [
@@ -29,6 +37,7 @@ module.exports = {
             template: paths.src + '/templates/template.html',
             filename: 'index.html',
         }),
+        new VueLoaderPlugin()
     ],
 
     module: {
@@ -48,6 +57,10 @@ module.exports = {
             { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
 
             { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            }
         ],
     },
 };
