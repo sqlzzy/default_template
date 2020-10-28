@@ -19,7 +19,9 @@
         "@babel/preset-env": "^7.12.1",
         "autoprefixer": "^10.0.1",
         "babel-loader": "^8.1.0",
+        "clean-webpack-plugin": "^3.0.0",
         "copy-webpack-plugin": "^6.2.1",
+        "cross-env": "^7.0.2",
         "css-loader": "^5.0.0",
         "css-mqpacker": "^7.0.0",
         "cssnano": "^4.1.10",
@@ -30,10 +32,13 @@
         "mini-css-extract-plugin": "^1.2.0",
         "mqpacker": "^7.0.0",
         "node-less": "^1.0.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.4",
         "path": "^0.12.7",
         "postcss-loader": "^4.0.4",
+        "postcss-preset-env": "^6.7.0",
         "style-loader": "^2.0.0",
-        "webpack": "^5.2.0",
+        "terser-webpack-plugin": "^5.0.2",
+        "webpack": "^5.3.0",
         "webpack-cli": "^4.1.0",
         "webpack-dev-server": "^3.11.0",
         "webpack-merge": "^5.2.0"
@@ -45,8 +50,8 @@
     "homepage": "https://github.com/osipovsergey/default_template#readme",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "webpack serve --config ./build/webpack.dev.conf.js",
-        "build": "webpack --config ./build/webpack.build.conf.js"
+        "dev": "cross-env NODE_ENV=development webpack serve --config build/webpack.dev.js",
+        "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.js"
     },
     "dependencies": {
         "vue": "^2.6.12",

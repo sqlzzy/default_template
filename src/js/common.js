@@ -1,4 +1,4 @@
 let add = (a, b) => {
     return a + b;
 };
-console.log(add(2, 6));
+console.log(add(2, 9));
