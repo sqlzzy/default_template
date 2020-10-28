@@ -15,8 +15,6 @@ module.exports = merge(common, {
         filename: 'js/[name].[contenthash].bundle.js',
     },
     plugins: [
-        // Extracts CSS into separate files
-        // Note: style-loader is for development, MiniCssExtractPlugin is for production
         new MiniCssExtractPlugin({
             filename: 'styles/[name].[contenthash].css',
             chunkFilename: '[id].css',
@@ -42,9 +40,6 @@ module.exports = merge(common, {
     optimization: {
         minimize: true,
         minimizer: [new OptimizeCssAssetsPlugin(), new TerserPlugin()],
-        // Once your build outputs multiple chunks, this option will ensure they share the webpack runtime
-        // instead of having their own. This also helps with long-term caching, since the chunks will only
-        // change when actual code changes, not the webpack runtime.
         runtimeChunk: {
             name: 'runtime',
         },
