@@ -26,7 +26,7 @@ Webpack 5 + Vue 3 + Less + JEST
 
 ### Note
   This project is open source.<br/>
-  Feedback and suggestions write to the issue.
+  Feedback and suggestions write to the [issue](https://github.com/osipovsergey/default_template/issues).
 
   P.S. This [repository](https://github.com/taniarascia/webpack-boilerplate) helped me in setting up the webpack. Thanks!
 
