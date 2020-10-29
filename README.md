@@ -22,7 +22,7 @@ Webpack 5 + Vue 3 + Less + JEST
   1) **Run test:**<br/>
      - NPM: npm run test
      - Yarn: yarn test
-  2) **Test generate coverage reports in "coverage" folder**
+  2) **Test generate coverage reports in "coverage" folder.**
 
 ### Note
   This project is open source.<br/>
