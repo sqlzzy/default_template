@@ -44,6 +44,7 @@ module.exports = merge(common, {
             chunks: 'all',
             cacheGroups: {
                 defaultVendors: {
+                    test: /[\\/]node_modules[\\/]/,
                     filename: 'js/[name].[contenthash].js'
                 }
             }
