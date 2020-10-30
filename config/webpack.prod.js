@@ -38,11 +38,16 @@ module.exports = merge(common, {
         }, ],
     },
     optimization: {
-        minimize: true,
         minimizer: [new OptimizeCssAssetsPlugin(), new TerserPlugin()],
-        runtimeChunk: {
-            name: 'runtime',
-        },
+        splitChunks: {
+            name: 'vendors',
+            chunks: 'all',
+            cacheGroups: {
+                defaultVendors: {
+                    filename: 'js/[name].[contenthash].js'
+                }
+            }
+        }
     },
     performance: {
         hints: false,
