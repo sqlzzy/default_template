@@ -7,7 +7,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     entry: {
-        app: paths.src + '/index.js',
+        app: paths.src + '/index.js'
     },
 
     output: {
@@ -60,7 +60,15 @@ module.exports = {
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'
-            }
+            },
+            {
+                test: /\.html$/i,
+                loader: 'html-loader',
+                options: {
+                    minimize: true,
+                },
+            },
+
         ],
     },
 };
