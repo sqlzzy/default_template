@@ -1,5 +1,5 @@
 # Default Template
-Webpack 5 + Vue 3 + Less + JEST
+Webpack 5 + Vue 3 + Less + JEST + PostCSS
 
 ### Install
   1) **Clone repository:**<br/>
