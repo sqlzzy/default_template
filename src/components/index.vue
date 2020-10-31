@@ -5,7 +5,7 @@
 </template>
 
 <style lang="less">
-@import '../less/utils/utils.less';
+@import '../less/mixins/mixins.less';
 
 *, *::before, *::after {
 	box-sizing: border-box;
