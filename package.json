@@ -38,6 +38,7 @@
         "vue-style-loader": "^4.1.2",
         "vue-template-compiler": "^2.6.12",
         "webpack": "^5.3.0",
+        "webpack-bundle-analyzer": "^3.9.0",
         "webpack-cli": "^4.1.0",
         "webpack-dev-server": "^3.11.0",
         "webpack-merge": "^5.2.0"
@@ -50,7 +51,9 @@
     "scripts": {
         "test": "jest",
         "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
-        "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
+        "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+        "genstats": "webpack --profile --json > ./stats/stats.json",
+        "watchstats": "webpack-bundle-analyzer ./stats/stats.json ./dist"
     },
     "dependencies": {
         "vue": "^2.6.12",
