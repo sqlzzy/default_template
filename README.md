@@ -29,6 +29,12 @@ Webpack 5 + Vue 3 + Less + JEST + PostCSS
   - **fonts.less** -- mixins for fonts<br/>
   - **media_queries.less** -- mixins for media-queries;<br/>
 
+### Webpack Bundle Analyzer
+  - **Generate stats file for Webpack Bundle Analyzer**<br/>
+    ```npm run genstats```<br/>
+  - **Watch stats bundles**<br/>
+    ```npm run watchstats```<br/>
+
 ### Note
   This project is open source.<br/>
   Feedback and suggestions write to the [issue](https://github.com/osipovsergey/default_template/issues).
