@@ -1,0 +1,50 @@
+// width for mobile
+@mobile   : 360px;
+@mobile-l : 480px;
+
+// width for tablet
+@tablet   : 768px;
+@tablet-l : 1024px;
+
+// width for laptop
+
+@laptop   : 1366px;
+@laptop-l : 1440px;
+
+// width for desktop
+
+@desktop  : 1680px;
+
+// Mixins for media-queries
+
+.mobile-s(@rules) {
+  @media (max-width : @mobile) { @rules(); }
+}
+
+.mobile(@rules) {
+  @media (min-width : @mobile) and (max-width : @mobile-l) { @rules(); }
+}
+
+.tablet(@rules) {
+  @media (max-width : @tablet) { @rules(); }
+}
+
+.tablet-l(@rules) {
+  @media (min-width : @tablet) and (max-width : @tablet-l) { @rules(); }
+}
+
+.laptop(@rules) {
+  @media (max-width : @laptop) { @rules(); }
+}
+
+.laptop-l(@rules) {
+   @media (min-width : @laptop) and (max-width : @laptop-l) { @rules(); }
+}
+
+.desktop(@rules) {
+  @media (max-width: @desktop) { @rules(); }
+}
+
+.desktop-l(@rules) {
+  @media (min-width: @desktop) { @rules(); }
+}
