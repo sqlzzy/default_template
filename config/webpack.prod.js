@@ -5,6 +5,7 @@ const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
     mode: 'production',
@@ -19,6 +20,7 @@ module.exports = merge(common, {
             filename: 'styles/[name].[contenthash].css',
             chunkFilename: '[id].css',
         }),
+        new BundleAnalyzerPlugin()
     ],
     module: {
         rules: [{

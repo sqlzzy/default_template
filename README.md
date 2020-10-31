@@ -30,10 +30,13 @@ Webpack 5 + Vue 3 + Less + JEST + PostCSS
   - **media_queries.less** -- mixins for media-queries;<br/>
 
 ### Webpack Bundle Analyzer
-  - **Generate stats file for Webpack Bundle Analyzer**<br/>
-    ```npm run genstats```<br/>
-  - **Watch stats bundles**<br/>
-    ```npm run watchstats```<br/>
+  1) **Create folder stats:** ```mkdir stats```<br/>
+  2) **Generate stats file for Webpack Bundle Analyzer:** ```npm run genstats```<br/>
+  3) **Watch stats bundles:** ```npm run watchstats```<br/>
+
+  or<br/>
+
+  **When building a project:** ```npm run build``` and automatically open page with stats.<br/>
 
 ### Note
   This project is open source.<br/>
