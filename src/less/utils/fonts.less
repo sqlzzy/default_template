@@ -1,0 +1,36 @@
+/*
+    .font-face for LESS;
+    @font-family, // name;
+    @file-path,   // absolute or relative path to font-file;
+    @font-weight, // bold | bolder | lighter | normal | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+    @font-style,  // normal | italic | oblique | inherit;
+*/
+
+.font-face(@font-family, @file-path, @font-weight, @font-style) {
+  @font-face {
+    font-family: @font-family;
+    src: url('@{file-path}.eot');
+    src: url('@{file-path}.woff') format('woff'),
+      url('@{file-path}.woff2') format('woff2'),
+      url('@{file-path}.otf') format('opentype'),
+      url('@{file-path}.ttf') format('truetype'),
+      url('@{file-path}.svg#@{file-path}') format('svg');
+    font-weight: @font-weight;
+    font-style: @font-style;
+  }
+}
+
+/*
+    .font for LESS;
+    @font-family, // name;
+    @file-size,   // <absolute-size> | <relative-size> | <length> | <percentage> | inherit | initial | unset;
+    @font-weight, // bold | bolder | lighter | normal | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+    @font-style,  // normal | italic | oblique | inherit;
+*/
+
+.font(@font-family, @font-size, @font-weight, @font-style) {
+    font-family: @font-family;
+    font-size: @font-size;
+    font-weight: @font-weight;
+    font-style: @font-style;
+}
