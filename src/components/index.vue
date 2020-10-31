@@ -12,11 +12,11 @@
 }
 
 h1 {
-    color: blue;
+    color: @blue;
     text-align: center;
 
     .mobile({
-        color: green;
+        color: @green;
     });
 }
 </style>
