@@ -24,7 +24,7 @@ Webpack 5 + Vue 3 + Less + JEST + PostCSS
   2) **Test generate coverage reports in "coverage" folder.**
 
 ### Mixins for LESS and Vue <style>
-  - **utils.less** -- main file for import file with mixins;
+  - **mixins.less** -- main file for import file with mixins;
   - **colors.less** -- mixins for colors<br/>
   - **fonts.less** -- mixins for fonts<br/>
   - **media_queries.less** -- mixins for media-queries;<br/>
